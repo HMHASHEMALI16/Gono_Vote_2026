@@ -94,12 +94,14 @@
 
         .leaflet-header h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 35px; text-align: center; font-weight: 800; }
 
-        /* কি ও কেন কার্ডস (লিফলেট এর ভেতরে) */
+        /* কি ও কেন কার্ডস */
         .qa-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 45px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
         }
         .qa-card {
             background: var(--qa-card-bg);
@@ -245,14 +247,14 @@
             .count-item { min-width: 75px; padding: 18px 5px; }
             .count-num { font-size: 1.8rem; }
             .hero-title { font-size: 1.8rem; }
-            .qa-container { grid-template-columns: 1fr; }
+            .qa-container { grid-template-columns: 1fr; margin-bottom: 40px; }
         }
     </style>
 </head>
 <body>
 
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-        <i data-lucide="moon" id="themeIcon" size="26"></i>
+        <i data-lucide="moon" id="themeIcon"></i>
     </button>
 
     <!-- ব্যালট পেপার মডেল -->
@@ -273,13 +275,10 @@
     <main>
         <!-- লিফলেট প্রচারণা সেকশন -->
         <section class="leaflet-section">
-          
-
-          
-  <div class="leaflet-header">
+            <div class="leaflet-header">
                 <h2>আপনি কি এমন বাংলাদেশ চান, যেখানে-</h2>
             </div>
-            <!-- সংস্কারের পয়েন্টসমূহ -->
+            <!-- সংস্কারের পয়েন্টসমূহ -->
             <ul class="leaflet-list">
                 <li class="leaflet-item"><i data-lucide="users"></i> তত্ত্বাবধায়ক সরকার, নির্বাচন কমিশন ও পিএসসি গঠনে সরকারি দল ও বিরোধী দল একত্রে কাজ করবে।</li>
                 <li class="leaflet-item"><i data-lucide="shield-alert"></i> সরকারি দল ইচ্ছেমতো সংবিধান সংশোধন করতে পারবে না; গণভোটের বিধান চালু হবে।</li>
@@ -294,14 +293,15 @@
                 <li class="leaflet-item"><i data-lucide="languages"></i> রাষ্ট্রভাষা বাংলার মর্যাদার পাশাপাশি অন্যান্য জাতিগোষ্ঠীর ভাষারও সাংবিধানিক স্বীকৃতি হবে।</li>
             </ul>
 
-            <div>
+            <div style="text-align: center;">
                 <div class="cta-box">"হ্যাঁ" ভোট দিলে উপরের সবকিছু পাবেন। "না" ভোট দিলে কিছুই পাবেন না।</div>
                 <p style="font-weight: 700; color: var(--primary); font-size: 1.15rem; margin-top: 10px;">মনে রাখবেন, পরিবর্তনের চাবি এবার আপনারই হাতে।</p>
                 <p style="font-size: 0.95rem; margin-top: 18px; opacity: 0.85; font-family: var(--font-serif); font-weight: 600;">প্রচারে: গণভোট বিষয়ে জনসচেতনতামূলক প্রচার কার্যক্রম, প্রধান উপদেষ্টার কার্যালয়।</p>
             </div>
-<div class="cta-final">
+        </section>
 
-              <!-- কি ও কেন সেকশন -->
+        <!-- কি ও কেন সেকশন -->
+        <div class="container">
             <div class="qa-container">
                 <div class="qa-card">
                     <h3>গণভোট কী?</h3>
@@ -324,11 +324,9 @@
                     <p style="font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--text-main);">রাষ্ট্রের সংস্কার ও চরিত্র বদলের জন্য অনেকগুলো গুরুত্বপূর্ণ সুপারিশ রয়েছে, যা বিভিন্ন রাজনৈতিক দল ও জোটের দীর্ঘদিনের আলাপ-আলোচনার মধ্য দিয়ে চূড়ান্ত করা হয়। এটি একটি উন্নত বাংলাদেশের প্রতিশ্রুত অঙ্গীকারনামা।</p>
                 </div>
             </div>
+        </div>
 
-            
-        </section>
-
-        <!-- সময়সূচি ও টাইমার কার্ড -->
+        <!-- সময়সূচি ও টাইমার কার্ড -->
         <section class="schedule-card">
             <div class="schedule-title">ভোট গ্রহণের তারিখ ও সময়</div>
             <div class="schedule-top-bar">
@@ -358,7 +356,7 @@
             </div>
         </section>
 
-        <!-- অফিশিয়াল ফাইল কার্ডসমূহ -->
+        <!-- অফিশিয়াল ফাইল কার্ডসমূহ -->
         <div class="container">
             <h3 style="margin-bottom: 45px; border-left: 7px solid var(--primary); padding-left: 20px; font-size: clamp(1.3rem, 4vw, 1.7rem); font-weight: 800; color: var(--text-main);">অফিসিয়াল নথিপত্র ও নির্দেশিকা</h3>
             <div class="grid" id="fileGrid"></div>
@@ -389,11 +387,11 @@
 
         const files = [
             { title: "গণভোট সচেতনতা লিফলেট", size: "৮০০ কেবি", icon: "megaphone", link: "leaflet.pdf", desc: "গণভোটের গুরুত্ব এবং 'হ্যাঁ' ভোটের সুফল সম্পর্কে সরকারি প্রচারপত্র।" },
-            { title: "নির্বাচন কমিশন পরিপত্র-১", size: "১.৫ এমবি", icon: "pen-tool", link: "Gonovote_Songkranto_Poripotro.pdf", desc: "ভোটের তারিখ, সময় ও কর্মকর্তাদের জন্য নির্দেশাবলী।" },
+            { title: "নির্বাচন কমিশন পরিপত্র-১", size: "১.৫ এমবি", icon: "pen-tool", link: "Gonovote_Songkranto_Poripotro.pdf", desc: "ভোটের তারিখ, সময় ও কর্মকর্তাদের জন্য নির্দেশাবলী।" },
             { title: "জুলাই জাতীয় সনদ ২০২৫", size: "১.৮ এমবি", icon: "scroll", link: "July_Jatiya_Sanad_2025.pdf", desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের রাজনৈতিক অঙ্গীকারনামা।" },
-            { title: "গণভোট অধ্যাদেশ ২০২৫", size: "১.২ এমবি", icon: "shield-check", link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি সংবলিত চূড়ান্ত অধ্যাদেশ।" },
+            { title: "গণভোট অধ্যাদেশ ২০২৫", size: "১.২ এমবি", icon: "shield-check", link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি সংবলিত চূড়ান্ত অধ্যাদেশ।" },
             { title: "বাস্তবায়ন আদেশ ২০২৫ (নং ০১)", size: "৯০০ কেবি", icon: "file-check", link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", desc: "সংবিধান সংস্কার পরিষদ (CRC) গঠন ও আইনি নির্দেশনা।" },
-            { title: "ভোটার নির্দেশিকা ও আচরণবিধি", size: "১.১ এমবি", icon: "user-check", link: "Voter_Guide_2026.pdf", desc: "সুষ্ঠুভাবে ভোট প্রদানের নিয়মাবলী ও ভোটারদের করণীয় নির্দেশিকা।" }
+            { title: "ভোটার নির্দেশিকা ও আচরণবিধি", size: "১.১ এমবি", icon: "user-check", link: "Voter_Guide_2026.pdf", desc: "সুষ্ঠুভাবে ভোট প্রদানের নিয়মাবলী ও ভোটারদের করণীয় নির্দেশিকা।" }
         ];
 
         const grid = document.getElementById('fileGrid');
@@ -440,20 +438,27 @@
 
         function updateCountdown() {
             const targetDate = new Date("February 12, 2026 07:30:00").getTime();
-            setInterval(function() {
+            
+            function tick() {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
+                
                 if (distance < 0) {
                     document.querySelector('.timer-section').innerHTML = "<h3 style='color:var(--primary); font-size: 2.5rem; font-weight: 800;'>ভোট গ্রহণ চলছে!</h3>";
                     return;
                 }
+                
                 document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
                 document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-            }, 1000);
+            }
+            
+            tick(); // Initial call
+            setInterval(tick, 1000);
         }
-        updateCountdown();
+        
+        window.onload = updateCountdown;
     </script>
 </body>
 </html>
