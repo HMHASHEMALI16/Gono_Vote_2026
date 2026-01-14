@@ -19,11 +19,12 @@
             font-weight: normal; font-style: normal; font-display: swap;
         }
 
-        /* ২. থিম ভেরিয়েবল (২.৫% রেড ভাইব) */
+        /* ২. থিম ভেরিয়েবল */
         :root[data-theme="day"] {
             --bg: #fffafa;             
             --header-bg: #dc2626;      
             --card-bg: #fff1f1; 
+            --link-btn-bg: #ffffff;
             --text-main: #1a0202; 
             --text-muted: #7f1d1d; 
             --border: #fee2e2; 
@@ -40,11 +41,12 @@
             --bg: #050101;             
             --header-bg: #dc2626;      
             --card-bg: #150505; 
+            --link-btn-bg: #150505; /* বাটন সাদা দেখানোর সমস্যা সমাধান */
             --text-main: #fef2f2; 
             --text-muted: #fca5a5; 
             --border: #2d0a0a; 
             --primary: #ef4444; 
-            --btn-text: #ff0000;
+            --btn-text: #ffffff;
             --glow: rgba(239, 68, 68, 0.15);
             --bullet-bg: rgba(255, 255, 255, 0.05);
             --icon-bg: linear-gradient(135deg, #ef4444, #dc2626);
@@ -74,7 +76,7 @@
         .hero-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
         .hero-subtitle { font-size: 1.2rem; font-weight: 600; opacity: 0.9; font-family: var(--font-serif); }
 
-        /* লিফলেট স্টাইল প্রচারণা সেকশন (High Priority) */
+        /* লিফলেট স্টাইল প্রচারণা সেকশন */
         .leaflet-section {
             max-width: 950px;
             margin: -60px auto 50px;
@@ -137,7 +139,7 @@
             box-shadow: 0 8px 20px var(--glow);
         }
 
-        /* সময়সূচি ও নির্বাচন তথ্য (পরিপত্র-১) */
+        /* সময়সূচি ও নির্বাচন তথ্য */
         .schedule-card {
             max-width: 950px; margin: 0 auto 50px;
             background: var(--bg); border: 1px solid var(--border);
@@ -149,7 +151,7 @@
         .schedule-item h4 { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px; }
         .schedule-item p { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
 
-        /* তথ্য সেকশন (আইনি কাঠামো) */
+        /* তথ্য সেকশন */
         .info-section { max-width: 1000px; margin: 0 auto 50px; padding: 0 20px; }
         .info-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; }
         .info-block h4 { font-size: 1.4rem; margin-bottom: 18px; color: var(--primary); border-left: 5px solid var(--primary); padding-left: 15px; }
@@ -180,7 +182,11 @@
         /* লিঙ্ক ও ব্রাউজার */
         .bottom-links { background: var(--card-bg); padding: 50px 20px; text-align: center; border-top: 2px solid var(--primary); }
         .link-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .link-btn { background: white; border: 1px solid var(--primary); padding: 18px 30px; border-radius: 15px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: var(--text-main); min-width: 300px; display: flex; flex-direction: column; align-items: center; }
+        .link-btn { 
+            background: var(--link-btn-bg); /* ভেরিয়েবল ব্যবহার করা হয়েছে */
+            border: 1px solid var(--primary); 
+            padding: 18px 30px; border-radius: 15px; cursor: pointer; transition: all 0.3s; text-decoration: none; color: var(--text-main); min-width: 300px; display: flex; flex-direction: column; align-items: center; 
+        }
         .link-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--glow); background: var(--primary); color: white; }
         .link-btn strong { font-family: var(--font-serif); font-size: 1.2rem; }
 
@@ -199,13 +205,13 @@
 
     <header>
         <div class="header-content">
-             <p class="hero-subtitle">জুলাই জাতীয় সনদ ২০২৫ ও সংবিধান সংস্কারের চূড়ান্ত রায় দিন</p><h1>গণভোটে ☑ ‘হ্যাঁ’ ভোট দিন</h1>
-            
+             <p class="hero-subtitle">জুলাই জাতীয় সনদ ২০২৫ ও সংবিধান সংস্কারের চূড়ান্ত রায় দিন</p>
+             <h1>গণভোটে ☑ ‘হ্যাঁ’ ভোট দিন</h1>
         </div>
     </header>
 
     <main>
-        <!-- লিফলেট স্টাইল প্রচারণা সেকশন -->
+        <!-- লিফলেট প্রচারণা সেকশন -->
         <section class="leaflet-section">
             <div class="leaflet-header">
                 <h2>আপনি কি এমন বাংলাদেশ চান, যেখানে-</h2>
@@ -232,7 +238,7 @@
             </div>
         </section>
 
-        <!-- পরিপত্র-১ অনুযায়ী সময়সূচি -->
+        <!-- সময়সূচি ও নির্বাচন তথ্য -->
         <section class="schedule-card">
             <div class="schedule-item">
                 <h4>ভোট গ্রহণের তারিখ</h4>
@@ -248,7 +254,7 @@
             </div>
         </section>
 
-        <!-- তথ্য সেকশন (অধ্যাদেশ ও আদেশ থেকে) -->
+        <!-- তথ্য সেকশন -->
         <section class="info-section">
             <div class="info-block">
                 <h4>গণভোটের আইনি প্রেক্ষাপট (অধ্যাদেশ নং ৬৭)</h4>
@@ -256,15 +262,6 @@
                     <li>জুলাই জাতীয় সনদ বাস্তবায়নের লক্ষ্যে সংবিধান সংস্কারের প্রস্তাবসমূহে জনগণের সম্মতি যাচাইয়ের জন্য এই গণভোট।</li>
                     <li>আদেশ নং ০১, ২০২৫ অনুযায়ী, গণভোটে বিজয়ী প্রস্তাবনাসমূহ সংবিধান সংস্কার পরিষদে চূড়ান্ত পাঠ হিসেবে গৃহীত হইবে।</li>
                     <li>ফ্যাসিবাদী শাসনের পুনরাবৃত্তি রোধ এবং জুলাই গণঅভ্যুত্থানের আকাঙ্ক্ষা পূরণই এই গণভোটের মূল লক্ষ্য।</li>
-                </ul>
-            </div>
-
-            <div class="info-block">
-                <h4>ভোটদান পদ্ধতি (পরিপত্র-১)</h4>
-                <ul class="info-list">
-                    <li>ভোটারগণ গোপন ব্যালটে "হ্যাঁ" অথবা "না" প্রতীকে সিল মেরে সম্মতি জ্ঞাপন করবেন।</li>
-                    <li>ত্রয়োদশ জাতীয় সংসদ নির্বাচনের ভোটার তালিকার সকল ভোটার এই গণভোটে ভোট প্রদানের যোগ্য।</li>
-                    <li>বিদেশি অবস্থানরত বাংলাদেশিরাও পোস্টাল ব্যালটের মাধ্যমে ভোট দিতে পারবেন।</li>
                 </ul>
             </div>
         </section>
@@ -297,17 +294,12 @@
     <script>
         lucide.createIcons();
 
-        // ৫টি পিডিএফ ফাইল আপডেট
         const files = [
             { title: "গণভোট সচেতনতা লিফলেট", size: "৮০০ কেবি", icon: "megaphone", link: "leaflet.pdf", desc: "গণভোটের গুরুত্ব এবং 'হ্যাঁ' ভোটের সুফল সম্পর্কে সরকারি প্রচারপত্র (১২টি মূল পয়েন্ট)।" },
             { title: "নির্বাচন কমিশন পরিপত্র-১", size: "১.৫ এমবি", icon: "pen-tool", link: "Gonovote_Songkranto_Poripotro.pdf", desc: "ভোটের তারিখ (১২ ফেব্রুয়ারি ২০২৬), সময়, ব্যালটের রং (গোলাপি) ও কর্মকর্তাদের নির্দেশনা।" },
             { title: "জুলাই জাতীয় সনদ ২০২৫", size: "১.৮ এমবি", icon: "scroll", link: "July_Jatiya_Sanad_2025.pdf", desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের ৪৮টি সুপারিশ সংবলিত রাজনৈতিক ঐকমত্যের চুড়ান্ত অঙ্গীকারনামা।" },
             { title: "গণভোট অধ্যাদেশ ২০২৫ (নং ৬৭)", size: "১.২ এমবি", icon: "shield-check", link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি, অনুচ্ছেদ ২০(২) প্রতিস্থাপন এবং বিধান প্রণয়নকল্পে জারিকৃত চূড়ান্ত অধ্যাদেশ।" },
-            { title: "বাস্তবায়ন আদেশ ২০২৫ (নং ০১)", size: "৯০০ কেবি", icon: "file-check", link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", desc: "সংবিধান সংস্কার পরিষদ (CRC) গঠন এবং গণভোটের ফলাফল চূড়ান্তকরণের আইনি নির্দেশনা।" },
-            { title: "ভোটার আচরণবিধি ২০২৬", size: "১.১ এমবি", icon: "user-check", link: "conduct.pdf", desc: "ভোটকেন্দ্রে ভোটারদের পালনীয় শৃঙ্খলা এবং সুষ্ঠু ভোটদানের গাইডলাইন।" },
-            { title: "ভোটদান পদ্ধতি সচিত্র গাইড", size: "৩.৫ এমবি", icon: "map", link: "guide.pdf", desc: "ব্যালট পেপার ব্যবহার এবং ভোট প্রদানের সচিত্র বর্ণনা সংবলিত নির্দেশিকা।" },
-            { title: "নিবন্ধন ফরম 'ক'", size: "৮৫০ কেবি", icon: "clipboard", link: "form.pdf", desc: "নতুন ভোটার হিসেবে নাম অন্তর্ভুক্ত করার জন্য প্রয়োজনীয় অফিসিয়াল আবেদন ফরম।" },
-            { title: "নিরাপত্তা ও শৃঙ্খলা বিধি", size: "১.৮ এমবি", icon: "shield-alert", link: "security.pdf", desc: "ভোটকেন্দ্রে নিরাপত্তা নিশ্চিতকরণে গৃহীত বিশেষ পদক্ষেপ ও আইনশৃঙ্খলা সংক্রান্ত বিধি।" }
+            { title: "বাস্তবায়ন আদেশ ২০২৫ (নং ০১)", size: "৯০০ কেবি", icon: "file-check", link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", desc: "সংবিধান সংস্কার পরিষদ (CRC) গঠন এবং গণভোটের ফলাফল চূড়ান্তকরণের আইনি নির্দেশনা।" }
         ];
 
         const grid = document.getElementById('fileGrid');
@@ -343,9 +335,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
